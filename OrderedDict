@@ -1,0 +1,24 @@
+OrderedDict
+
+این کلاس شبیه به دیکشنری عمل می کند با این تفاوت که مقادیر به همان ترتیبی که وارد می شوند در خود نگه می دارد.
+
+روش کار به این صورت است که کلید و مقدار را به شکل یک تاپل گرفته و مکان آنها را دستکاری نمی کند.
+
+از کلاس dict ارث می برد و متدهای آنها را می توان استفاده کرد.
+
+>>> from collections import OrderedDict
+
+>>> info = OrderedDict([
+...     ('username', 'amin'),
+...     ('password', 'password'),
+...     ('email', 'amin@example.com')
+... ])
+>>>
+
+>>> for k, v in od.items():
+...     print("{}: {}".format(k, v))
+...
+username: amin
+password: password
+email: amin@example.com
+

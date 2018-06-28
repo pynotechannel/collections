@@ -1,0 +1,48 @@
+defaultdict
+
+این کلاس یک دیکشنری می سازد که در آن آرگومان اول یک تابع را می گیرد.
+
+>>> from collections import defaultdict
+
+>>> ages = defaultdict(int)
+defaultdict(<class 'int'>, {})
+
+آرگومان مقدار پیش فرض کلیدهای تعریف نشده را مشخص می سازد.
+
+>>> ages['Amin'] = 20
+>>> ages['Reza'] = 23
+
+مقدار دهی شی از نوع کلاس defaultdict شبیه به دیکشنری می باشد.
+
+>>> ages['Amin']
+20
+>>> ages['Reza']
+23
+
+>>> ages
+defaultdict(<class 'int'>, {'Reza': 23, 'Amin': 20})
+
+همانند دیکشنری می تواند کلیدها و مقادیر را با متدهای keys، values و items بدست آورد.
+
+اکنون اگر از کلیدی که مقداردهی نشده استفاده کنید مقدار 0 را بعنوان پیش فرض برمی گرداند.
+
+>>> ages['Ali']
+0
+
+
+می توانیم یک تابع تعریف کنیم و بعنوان آرگومان به این کلاس پاس کنیم.
+
+def myfunc():
+   return "What?!"
+
+>>> answers = defaultdict(myfunc)
+>>> answers['What is your name?'] = "Amin"
+>>> answers['How old are you?']
+'What?!'
+
+تعریف تابع بوسیله lambda امکان پذیر می باشد.
+
+>>> answers = defaultdict(lambda: "lambda say what?!")
+>>> answers['How old are you?']
+'lambda say what?!'
+
