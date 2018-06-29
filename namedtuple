@@ -6,11 +6,18 @@
 2 print('Representation:', bob)
 3
 4 jane = ('Jane', 29, 'female')
-5 print('\nField by index:', jane[0])
+5 print('Field by index:', jane[0])
 6
-7 print('\nFields by index:')
+7 print('Fields by index:')
 8 for p in [ bob, jane ]:
 9     print('%s is a %d year old %s' % p)
+
+output:
+Representation: ('Bob', 30, 'male')
+Field by index: Jane
+Fields by index:
+Bob is a 30 year old male
+Jane is a 29 year old female
 
 
 در ادامه مثالی از نحوه پیاده سازی کلاس Person با استفاده از namedtuple را نمایش می دهیم.
@@ -29,4 +36,27 @@
 12 for p in [bob, jane]:
 13     print(p)
 
+output:
+Person name: Jane
+Person age: 39
+Person(name='Bob', age=30, gender='male')
+Person(name='Jane', age=39, gender='female')
+
+
 خط ۹ مقدار فیلد را بوسیله نام و خط ۱۰ بوسیله اندیس بدست می آوریم.
+
+فیلدهای شی namedtuple همانند tuple فقط خواندنی و تغییر پذیر نیست.
+اما می توان با متد _replace مقادیر یک شی را تغییر و شی جدیدی ساخت.
+
+>>> jane = jane._replace(age=30)
+>>> jane
+Person(name='Jane', age=30, gender='female')
+
+
+>>> jane._fields
+('name', 'age', 'gender')
+
+
+>>> jane._asdict()
+OrderedDict([('name', 'Jane'), ('age', 30), ('gender', 'female')])
+
