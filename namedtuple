@@ -1,0 +1,32 @@
+کلاس namedtuple از کلاس tuple ارث می برد و می توان مقدار هر فیلد را با نام و اندیس بدست آورد.
+
+در زیر برای نمایش اطلاعات یک شخص از تاپل استفاده شده است.
+
+1 bob = ('Bob', 30, 'male')
+2 print('Representation:', bob)
+3
+4 jane = ('Jane', 29, 'female')
+5 print('\nField by index:', jane[0])
+6
+7 print('\nFields by index:')
+8 for p in [ bob, jane ]:
+9     print('%s is a %d year old %s' % p)
+
+
+در ادامه مثالی از نحوه پیاده سازی کلاس Person با استفاده از namedtuple را نمایش می دهیم.
+
+1 from collections import namedtuple
+2
+3 Person = namedtuple('Person', 'name age gender')
+4
+5 bob = Person(name='Bob', age=30, gender='male')
+6 person = dict(name='Jane', age=39, gender='female')
+7 jane = Person(**person)
+8
+9 print('Person name: {name}'.format(name=jane.name))
+0 print('Person age: {age}'.format(age=jane[1]))
+11
+12 for p in [bob, jane]:
+13     print(p)
+
+خط ۹ مقدار فیلد را بوسیله نام و خط ۱۰ بوسیله اندیس بدست می آوریم.
